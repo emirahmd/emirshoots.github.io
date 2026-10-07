@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emir Ahmed | Spor & Aksiyon Fotoğrafçısı</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:ital,wght@0,700;0,800;0,900;1,800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0c;
+      --card-bg: #121215;
+      --border: #222226;
+      --accent: #ff4d00;
+      --accent-glow: rgba(255, 77, 0, 0.25);
+      --text-main: #f5f5f7;
+      --text-muted: #8e8e93;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .brand, .stat-num {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10, 10, 12, 0.85);
+      backdrop-filter: blur(16px);
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .brand {
+      font-size: 1.3rem;
+      letter-spacing: 0.08em;
+      color: #fff;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 28px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover, nav a.active {
+      color: #fff;
+    }
+
+    .nav-btn {
+      background: #fff;
+      color: #000 !important;
+      padding: 8px 18px;
+      border-radius: 4px;
+      font-weight: 600 !important;
+    }
+
+    .nav-btn:hover {
+      background: var(--accent);
+      color: #fff !important;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 140px 40px 80px 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+      gap: 60px;
+    }
+
+    .hero-content {
+      flex: 1.1;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 5.5vw, 4.6rem);
+      line-height: 1.02;
+      margin-bottom: 24px;
+      color: #fff;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin-bottom: 36px;
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      padding: 14px 30px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.92rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px var(--accent-glow);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 14px 26px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.92rem;
+      transition: background 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-visual {
+      flex: 0.9;
+      position: relative;
+    }
+
+    .hero-img-wrap {
+      width: 100%;
+      max-width: 750px;
+      margin-left: auto;
+      aspect-ratio: 16 / 10;
+      height: auto;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    .hero-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(20%) contrast(1.05);
+      transition: transform 0.5s ease;
+    }
+
+    .hero-img-wrap:hover img {
+      transform: scale(1.03);
+    }
+
+    .filter-wrapper {
+      max-width: 1400px;
+      margin: 0 auto 30px auto;
+      padding: 0 40px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 10px 22px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .filter-btn.active {
+      background: #fff;
+      color: #000;
+      font-weight: 600;
+      border-color: #fff;
+    }
+
+    .gallery-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px 120px 40px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      group: card;
+      aspect-ratio: 16 / 11;
+    }
+
+    .gallery-item.tall {
+      grid-row: span 2;
+      aspect-ratio: auto;
+      height: 100%;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease, filter 0.4s ease;
+      display: block;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .item-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(10, 10, 12, 0.95) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .item-overlay {
+      opacity: 1;
+    }
+
+    .item-category {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .item-title {
+      font-size: 1.1rem;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 4px;
+    }
+
+    .item-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .about-section {
+      background: #0d0d10;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 120px 40px;
+    }
+
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-photo {
+      width: 100%;
+      height: 520px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-text h2 {
+      font-size: 2.6rem;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      color: #fff;
+    }
+
+    .about-lead {
+      font-size: 1.1rem;
+      color: #ddd;
+      margin-bottom: 20px;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .about-body {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .badge-bar {
+      display: flex;
+      gap: 30px;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+    }
+
+    .badge-item h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      color: #fff;
+    }
+
+    .badge-item p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .contact-section {
+      padding: 120px 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      margin-bottom: 16px;
+    }
+
+    .contact-section p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+    }
+
+    .contact-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+
+    .contact-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 24px 32px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 240px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .card-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .card-value {
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.94);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      color: #fff;
+      font-size: 32px;
+      cursor: pointer;
+      font-weight: 300;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        padding-top: 100px;
+      }
+      .about-container {
+        grid-template-columns: 1fr;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-img-wrap {
+        max-width: 100%;
+        aspect-ratio: 16 / 10;
+        height: auto;
+        margin: 0 auto;
+      }
+      header {
+        padding: 16px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">EMİR AHMED<span>.</span></div>
+    <nav>
+      <a href="#galeri">Portfolyo</a>
+      <a href="#hakkimda">Hakkımda</a>
+      <a href="#iletisim" class="nav-btn">İletişim</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-tag">Aksiyon & Spor Fotoğrafçısı</span>
+      <h1 class="hero-title">Hızı Dondur.<br>Mücadeleyi Hisset.</h1>
+      <p class="hero-desc">
+        Sahadaki son saniye sayısından asfalttaki lastik dumanına kadar; geri gelmeyecek o saf enerjinin ve adrenalin anının peşindeyim.
+      </p>
+      <div class="hero-actions">
+        <a href="#galeri" class="btn-primary">Kareleri Keşfet</a>
+        <a href="#iletisim" class="btn-secondary">İletişime Geç</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-img-wrap">
+        <!-- Güncellenen yatay Red Bull Drift fotoğrafı -->
+        <img src="images/drift_05.jpg" alt="Emir Ahmed - Red Bull Drift">
+      </div>
+    </div>
+  </section>
+
+  <div class="filter-wrapper" id="galeri">
+    <button class="filter-btn active" onclick="filterGallery('all')">Tüm Çalışmalar</button>
+    <button class="filter-btn" onclick="filterGallery('futbol')">Amerikan Futbolu</button>
+    <button class="filter-btn" onclick="filterGallery('drift')">Motor Sporları</button>
+    <button class="filter-btn" onclick="filterGallery('air')">Havacılık</button>
+  </div>
+
+  <section class="gallery-section">
+    <div class="gallery-grid">
+      
+      <!-- DRIFT 4 (DİKEY GÜN BATIMI) -->
+      <div class="gallery-item tall" data-cat="drift" onclick="openModal('images/drift_04.jpg')">
+        <img src="images/drift_04.jpg" alt="Sunset Drift">
+        <div class="item-overlay">
+          <span class="item-category">Motor Sporları</span>
+          <h4 class="item-title">Altın Saat & Asfalt</h4>
+          <span class="item-meta">Ağustos 2026, Çankırı Tuzfest</span>
+        </div>
+      </div>
+
+      <!-- AMF 1 -->
+      <div class="gallery-item" data-cat="futbol" onclick="openModal('images/amf_01.jpg')">
+        <img src="images/amf_01.jpg" alt="Hacettepe Tackle">
+        <div class="item-overlay">
+          <span class="item-category">Amerikan Futbolu</span>
+          <h4 class="item-title">Sert Mücadele</h4>
+          <span class="item-meta">Mart 2026, Hacettepe Üniversitesi</span>
+        </div>
+      </div>
+
+      <!-- DRIFT 1 -->
+      <div class="gallery-item" data-cat="drift" onclick="openModal('images/drift_01.jpg')">
+        <img src="images/drift_01.jpg" alt="Falken Drift Smoke">
+        <div class="item-overlay">
+          <span class="item-category">Motor Sporları</span>
+          <h4 class="item-title">Lastik Dumanı & Açı</h4>
+          <span class="item-meta">Ağustos 2026, Çankırı Tuzfest</span>
+        </div>
+      </div>
+
+      <!-- AIR 1 -->
+      <div class="gallery-item" data-cat="air" onclick="openModal('images/air_01.jpg')">
+        <img src="images/air_01.jpg" alt="USAF T-6 Texan">
+        <div class="item-overlay">
+          <span class="item-category">Havacılık</span>
+          <h4 class="item-title">USAF Gökyüzü Manevrası</h4>
+          <span class="item-meta">Eylül 2026, SHG Airshow</span>
+        </div>
+      </div>
+
+      <!-- AMF 2 -->
+      <div class="gallery-item" data-cat="futbol" onclick="openModal('images/amf_03.jpg')">
+        <img src="images/amf_03.jpg" alt="Line of Scrimmage">
+        <div class="item-overlay">
+          <span class="item-category">Amerikan Futbolu</span>
+          <h4 class="item-title">Çizgideki Gerginlik</h4>
+          <span class="item-meta">Mart 2026, Hacettepe Üniversitesi</span>
+        </div>
+      </div>
+
+      <!-- DRIFT 2 -->
+      <div class="gallery-item" data-cat="drift" onclick="openModal('images/drift_02.jpg')">
+        <img src="images/drift_02.jpg" alt="Falken Apex">
+        <div class="item-overlay">
+          <span class="item-category">Motor Sporları</span>
+          <h4 class="item-title">Apex & Güç</h4>
+          <span class="item-meta">Ağustos 2026, Çankırı Tuzfest</span>
+        </div>
+      </div>
+
+      <!-- AIR 2 -->
+      <div class="gallery-item" data-cat="air" onclick="openModal('images/air_02.jpg')">
+        <img src="images/air_02.jpg" alt="Spitfire Low Pass">
+        <div class="item-overlay">
+          <span class="item-category">Havacılık</span>
+          <h4 class="item-title">Tarihsel Alçak Geçiş</h4>
+          <span class="item-meta">Eylül 2026, SHG Airshow</span>
+        </div>
+      </div>
+
+      <!-- AMF 12 - SPRINT -->
+      <div class="gallery-item" data-cat="futbol" onclick="openModal('images/amf_12.jpg')">
+        <img src="images/amf_12.jpg" alt="Tryouts Sprint">
+        <div class="item-overlay">
+          <span class="item-category">Amerikan Futbolu</span>
+          <h4 class="item-title">Patlayıcı Güç</h4>
+          <span class="item-meta">Eylül 2026, THK Anka Tryouts</span>
+        </div>
+      </div>
+
+      <!-- AMF 13 - TACKLE -->
+      <div class="gallery-item" data-cat="futbol" onclick="openModal('images/amf_13.jpg')">
+        <img src="images/amf_13.jpg" alt="Tackle Anı">
+        <div class="item-overlay">
+          <span class="item-category">Amerikan Futbolu</span>
+          <h4 class="item-title">Kıyasıya Mücadele</h4>
+          <span class="item-meta">Mart 2026, Hacettepe Üniversitesi</span>
+        </div>
+      </div>
+
+      <!-- AMF 14 - LINE OF SCRIMMAGE -->
+      <div class="gallery-item" data-cat="futbol" onclick="openModal('images/amf_14.jpg')">
+        <img src="images/amf_14.jpg" alt="Hücum Hattı">
+        <div class="item-overlay">
+          <span class="item-category">Amerikan Futbolu</span>
+          <h4 class="item-title">Odak ve Bekleyiş</h4>
+          <span class="item-meta">Mart 2026, Hacettepe Üniversitesi</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="about-section" id="hakkimda">
+    <div class="about-container">
+      <div class="about-photo">
+        <img src="images/about.png" alt="Emir Ahmed Profile">
+      </div>
+      <div class="about-text">
+        <h2>Vizyon & Hikaye</h2>
+        <p class="about-lead">
+          "Benim için fotoğraf; bir otomobilin virajdaki keskinliği, bir sporcunun ter damlalarının havada asılı kaldığı saniye ve mücadelenin içindeki saf enerjidir."
+        </p>
+        <p class="about-body">
+          Bugüne kadar hayatım hep sporla iç içe geçti. Yüzme, tenis, basketbol, futbol ve nihayetinde çizgi oyuncusu olarak sahaya çıktığım Amerikan futbolu... Yıllarca bir sporcu olarak ter dökerek, direkt içinde bulunduğum "an"lar bunlar. Sınırların zorlandığı her yerde, o dinamizmi ve hızı dondurarak hikayeleştirmeyi amaçlıyorum.
+        </p>
+        <div class="badge-bar">
+          <div class="badge-item">
+            <h4>ANKARA</h4>
+            <p>Merkez Lokasyon</p>
+          </div>
+          <div class="badge-item">
+            <h4>SPOR & AKSİYON</h4>
+            <p>Uzmanlık Alanı</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="iletisim">
+    <h2>Birlikte Çalışalım</h2>
+    <p>Maç çekimleri, organizasyonlar, takım veya marka projeleriniz için doğrudan iletişime geçebilirsiniz.</p>
+    
+    <div class="contact-grid">
+      <a href="https://instagram.com/emirshoots" target="_blank" class="contact-card">
+        <span class="card-label">Instagram</span>
+        <span class="card-value">@emirshoots</span>
+      </a>
+      <a href="mailto:emiirahmd@gmail.com" class="contact-card">
+        <span class="card-label">E-Posta</span>
+        <span class="card-value">emiirahmd@gmail.com</span>
+      </a>
+      <a href="tel:+905512454400" class="contact-card">
+        <span class="card-label">Telefon</span>
+        <span class="card-value">+90 551 245 44 00</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Emir Ahmed. Tüm hakları saklıdır. — emirshoots.com</p>
+  </footer>
+
+  <div class="modal" id="imageModal" onclick="closeModal()">
+    <span class="modal-close">&times;</span>
+    <img src="" class="modal-img" id="modalImg" alt="Büyütülmüş Görsel">
+  </div>
+
+  <script>
+    function filterGallery(category) {
+      const items = document.querySelectorAll('.gallery-item');
+      const buttons = document.querySelectorAll('.filter-btn');
+      
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-cat') === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    function openModal(src) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = src;
+      modal.classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('imageModal').classList.remove('active');
+    }
+  </script>
+</body>
+</html>
